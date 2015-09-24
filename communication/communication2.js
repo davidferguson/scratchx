@@ -100,6 +100,11 @@
 			alert("You have already set your network name. You can't change this.");
 		}
 	};
+	
+	ext.getWordX = function(x, string)
+	{
+		return string.split(" ")[x-1];
+	};
 
 	var descriptor = {
 		blocks: [
