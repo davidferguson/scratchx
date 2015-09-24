@@ -112,7 +112,8 @@
 			[' ', 'send tag %s and message %s to %s', 'sendMessage'],
 			['h', 'when new message available', 'whenMessage'],
 			['r', 'message', 'getMessage',],
-			['r', 'tag', 'getTag',]
+			['r', 'tag', 'getTag',],
+			['r', 'word %n of %s', 'getWordX',]
 		]
 	};
 
