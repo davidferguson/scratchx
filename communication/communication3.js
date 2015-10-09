@@ -66,6 +66,20 @@
 		}
 	};
 	
+	ext.setNetScore = function( score )
+	{
+		for( var key in window["playerObject"] )
+		{
+			if( window["playerObject"].hasOwnProperty(key) )
+			{
+				if( window["playerObject"][key].name == window["netName"] )
+				{
+					fb.child('players').child(key).update({ 'score': score });
+				}
+			}
+		}
+	};
+	
 	ext.getPlayerX = function( playerName )
 	{
 		for( var key in window["playerObject"] )
@@ -112,11 +126,12 @@
 		blocks: [
 			[' ', 'set network name %s', 'setNetName'],
 			[' ', 'set network location x:%n y:%n', 'setNetLocation'],
+			[' ', 'set network score:%n', 'setNetScore'],
 			['r', 'player %s network x', 'getPlayerX',],
 			['r', 'player %s network y', 'getPlayerY',],
 			['r', 'player %s network score', 'getPlayerScore',]
 		]
 	};
 
-	ScratchExtensions.register('Communication +2', descriptor, ext);
+	ScratchExtensions.register('Communication +3', descriptor, ext);
 })({});
